@@ -1,21 +1,25 @@
 import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
+import Header from './header';
+import Footer from './footer';
 
 const name = "KDF";
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
     return (
-        <div className={styles.container}>
+        <div className="list">
             <Head>
                 <link rel="icon" href="/favicon.ico" />
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                <meta name="robots" content="index, follow" />
                 <meta
                     name="description"
                     content="Learn how to build a personal website using Next.js"
                 />
+                <meta name="author" content="KDF5000" />
                 <meta
                     property="og:image"
                     content={`https://og-image.vercel.app/${encodeURI(
@@ -25,50 +29,11 @@ export default function Layout({ children, home }) {
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            <header className={styles.header}>
-                {home ? (
-                    <>
-                        <Image
-                            priority
-                            src="/images/profile.jpg"
-                            className={utilStyles.borderCircle}
-                            height={144}
-                            width={144}
-                            alt=""
-                        />
-                        <h1 className={utilStyles.heading2Xl}>{name}</h1>
-                    </>
-                ) : (
-                    <>
-                        <Link href="/">
-                            <a>
-                                <Image
-                                    priority
-                                    src="/images/profile.jpg"
-                                    className={utilStyles.borderCircle}
-                                    height={108}
-                                    width={108}
-                                    alt=""
-                                />
-                            </a>
-                        </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/">
-                                <a className={utilStyles.colorInherit}>{name}</a>
-                            </Link>
-                        </h2>
-                    </>
-                )}
-            </header>
-            <main>{children}</main>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
-                </div>
-            )}
-        </div>
+
+            <Header></Header>
+            <main className={styles.main}>{children}</main>
+            <Footer></Footer>
+        </div >
 
     );
 }

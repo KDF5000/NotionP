@@ -40,7 +40,7 @@
     width: 26px;
 }
 
-/* code {
+code {
     direction: ltr;
 }
 
@@ -48,10 +48,6 @@ div.highlight,
 pre {
     position: relative;
 }
-div.highlight:hover .copy-code,
-pre:hover .copy-code {
-    display: block;
-} */
 
 .copy-code {
     display: none;
@@ -64,4 +60,9 @@ pre:hover .copy-code {
     padding: 0 5px;
     font-size: 14px;
     user-select: none;
+}
+
+div.highlight:hover .copy-code,
+pre:hover .copy-code {
+    display: block;
 }
