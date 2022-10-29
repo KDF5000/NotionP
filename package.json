@@ -4,10 +4,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postinstall":"patch-package"
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@homegrown/word-counter": "^0.1.7",
+    "@next/bundle-analyzer": "^13.0.0",
     "@notion-cms/client": "^0.2.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
