@@ -60,9 +60,7 @@ export async function getStaticProps({ params }) {
 export default function Post({ title, recordMap }) {
     return (
         <Layout>
-            <Head>
-                <title>{title}</title>
-            </Head>
+            <h2>{title}</h2>
             <NotionRenderer
                 recordMap={recordMap}
                 fullPage={false}
