@@ -1,8 +1,10 @@
+import Head from 'next/head';
 import Layout from '../../components/layout';
-import { retrievePage, queryDatabase } from '../../lib/notion';
+import { queryDatabase } from '../../lib/notion';
 import { NotionAPI } from 'notion-client';
-import { NotionRenderer } from 'react-notion-x';
-import dynamic from 'next/dynamic'
+import { NotionPage, NotionRenderer } from 'react-notion-x';
+import { getPageTitle } from 'notion-utils';
+import dynamic from 'next/dynamic';
 
 const Code = dynamic(() =>
     import('react-notion-x/build/third-party/code').then((m) => m.Code)
@@ -28,17 +30,6 @@ const Modal = dynamic(
     }
 )
 
-export async function getStaticProps({ params }) {
-    const notionx = new NotionAPI();
-    const recordMap = await notionx.getPage(params.id);
-
-    return {
-        props: {
-            recordMap,
-        },
-    };
-}
-
 export async function getStaticPaths() {
     const metas = await queryDatabase("f532a109abd34b259c6bd1334d277ec8");
     const paths = metas.map((meta) => {
@@ -50,13 +41,28 @@ export async function getStaticPaths() {
     });
     return {
         paths,
-        fallback: false,
+        fallback: 'blocking',
     };
 }
 
-export default function Post({ page, recordMap }) {
+export async function getStaticProps({ params }) {
+    const notionx = new NotionAPI();
+    const recordMap = await notionx.getPage(params.id);
+    const title = getPageTitle(recordMap);
+    return {
+        props: {
+            title,
+            recordMap
+        },
+    };
+}
+
+export default function Post({ title, recordMap }) {
     return (
         <Layout>
+            <Head>
+                <title>{title}</title>
+            </Head>
             <NotionRenderer
                 recordMap={recordMap}
                 fullPage={false}
