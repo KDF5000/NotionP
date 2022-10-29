@@ -56,18 +56,18 @@ export async function getStaticPaths() {
 
 export default function Post({ page, recordMap }) {
     return (
-        // <Layout>
-        <NotionRenderer
-            recordMap={recordMap}
-            fullPage={false}
-            darkMode={false}
-            components={{
-                Code,
-                Collection,
-                Equation,
-                Modal,
-                Pdf
-            }} />
-        // </Layout >
+        <Layout>
+            <NotionRenderer
+                recordMap={recordMap}
+                fullPage={false}
+                darkMode={false}
+                components={{
+                    Code,
+                    Collection,
+                    Equation,
+                    Modal,
+                    Pdf
+                }} />
+        </Layout >
     );
 }
