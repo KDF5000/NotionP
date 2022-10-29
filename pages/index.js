@@ -14,8 +14,6 @@ export async function getStaticProps() {
   };
 }
 
-
-
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
@@ -24,7 +22,7 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <section>
-        {allPostsData.map(({ id, title, abstract }) => (
+        {allPostsData.map(({ id, title, created_time, abstract }) => (
           <article className={cn(styles.postEntry, styles.tagEntry)}>
             <header className={styles.entryHeader}>
               <h2> {title}</h2>
@@ -33,7 +31,7 @@ export default function Home({ allPostsData }) {
               <p>{abstract}</p>
             </div>
             <footer className={styles.entryFooter}>
-              KDF5000
+              <span title='date'><Date dateString={created_time}></Date></span>
             </footer>
             <a className={styles.entryLink} aria-label={"post link to " + id} href={"/posts/" + id}></a>
           </article>

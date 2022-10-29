@@ -1,0 +1,57 @@
+diff --git a/node_modules/@notion-cms/client/build/parse.js b/node_modules/@notion-cms/client/build/parse.js
+index cf90c2f..bbe3fd9 100644
+--- a/node_modules/@notion-cms/client/build/parse.js
++++ b/node_modules/@notion-cms/client/build/parse.js
+@@ -27,13 +27,21 @@ async function parseProperty(property) {
+         case "multi_select":
+             return property.multi_select.map((x) => x.name);
+         case "date":
+-            if (property.date.end)
+-                return {
++            if (property.date) {
++                return property.date.end ? {
+                     start: parseDate(property.date.start),
+                     end: parseDate(property.date.end),
+-                };
+-            else
+-                return parseDate(property.date.start);
++                } : parseDate(property.date.start);
++            } else {
++                return null;
++            }
++        // if (property.date.end)
++        //     return {
++        //         start: parseDate(property.date.start),
++        //         end: parseDate(property.date.end),
++        //     };
++        // else
++        //     return parseDate(property.date.start);
+         case "formula":
+             switch (property.formula.type) {
+                 case "boolean":
+@@ -123,6 +131,7 @@ async function parsePage(page) {
+     return {
+         id: page.id,
+         meta: {
++            created_time: page.created_time,
+             icon: page.icon
+                 ? "emoji" in page.icon
+                     ? page.icon.emoji
+diff --git a/node_modules/@notion-cms/client/build/types.d.ts b/node_modules/@notion-cms/client/build/types.d.ts
+index e52069c..2b71aa5 100644
+--- a/node_modules/@notion-cms/client/build/types.d.ts
++++ b/node_modules/@notion-cms/client/build/types.d.ts
+@@ -1,4 +1,4 @@
+-import { Blocks, FilesProperty, URL, User } from "@notion-cms/types";
++import { Blocks, FilesProperty, ISO8601Date, URL, User } from "@notion-cms/types";
+ export interface DatabaseProps {
+     [key: string]: string | string[] | number | number[] | boolean | {
+         start: string;
+@@ -8,6 +8,7 @@ export interface DatabaseProps {
+ export interface ParsedPage<Props extends DatabaseProps> {
+     id: string;
+     meta: {
++        created_time: ISO8601Date;
+         icon: URL;
+         cover: URL;
+     };

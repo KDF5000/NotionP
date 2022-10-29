@@ -1,46 +1,73 @@
-import Head from 'next/head';
 import Layout from '../../components/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
-import Date from '../../components/date';
-import styles from '../../styles/id.module.css';
+import { retrievePage, queryDatabase } from '../../lib/notion';
+import { NotionAPI } from 'notion-client';
+import { NotionRenderer } from 'react-notion-x';
+import dynamic from 'next/dynamic'
+
+const Code = dynamic(() =>
+    import('react-notion-x/build/third-party/code').then((m) => m.Code)
+)
+const Collection = dynamic(() =>
+    import('react-notion-x/build/third-party/collection').then(
+        (m) => m.Collection
+    )
+)
+const Equation = dynamic(() =>
+    import('react-notion-x/build/third-party/equation').then((m) => m.Equation)
+)
+const Pdf = dynamic(
+    () => import('react-notion-x/build/third-party/pdf').then((m) => m.Pdf),
+    {
+        ssr: false
+    }
+)
+const Modal = dynamic(
+    () => import('react-notion-x/build/third-party/modal').then((m) => m.Modal),
+    {
+        ssr: false
+    }
+)
+
+export async function getStaticProps({ params }) {
+    const notionx = new NotionAPI();
+    const recordMap = await notionx.getPage(params.id);
+
+    return {
+        props: {
+            recordMap,
+        },
+    };
+}
 
 export async function getStaticPaths() {
-    const paths = getAllPostIds();
+    const metas = await queryDatabase("f532a109abd34b259c6bd1334d277ec8");
+    const paths = metas.map((meta) => {
+        return {
+            params: {
+                id: meta.id,
+            }
+        }
+    });
     return {
         paths,
         fallback: false,
     };
 }
 
-export async function getStaticProps({ params }) {
-    const postData = await getPostData(params.id);
-    return {
-        props: {
-            postData,
-        },
-    };
-}
-
-export default function Post({ postData }) {
+export default function Post({ page, recordMap }) {
     return (
-        <Layout>
-            <Head>
-                <title>{postData.title}</title>
-            </Head>
-
-            <article className={styles.singlePage}>
-                <header className={styles.postHeader}>
-                    <h1 className={styles.postTile}>
-                        {postData.title}
-                    </h1>
-                    <div className={styles.postMeta}>
-                        <span title='date'><Date dateString={postData.date}></Date></span>&nbsp;·&nbsp;{postData.readingTime} min&nbsp;·&nbsp;{postData.author}
-                    </div>
-                </header>
-
-                {/* {{- partial "toc.html" . }} */}
-                <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-            </article>
-        </Layout >
+        // <Layout>
+        <NotionRenderer
+            recordMap={recordMap}
+            fullPage={false}
+            darkMode={false}
+            components={{
+                Code,
+                Collection,
+                Equation,
+                Modal,
+                Pdf
+            }} />
+        // </Layout >
     );
 }
