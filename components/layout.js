@@ -1,6 +1,7 @@
 import styles from './layout.module.css';
 import Head from 'next/head';
 import Header from './header';
+import Footer from './footer';
 
 const name = "KDF";
 export const siteTitle = 'Next.js Sample Website';
@@ -31,7 +32,7 @@ export default function Layout({ children, home }) {
 
             <Header></Header>
             <main className={styles.container}>{children}</main>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div >
 
     );

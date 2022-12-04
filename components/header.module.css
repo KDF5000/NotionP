@@ -44,7 +44,8 @@
 
 #menu a {
     display: block;
-    font-size: 16px;
+    font-size: .85rem;
+    color: #707070;
 }
 
 #menu .active {

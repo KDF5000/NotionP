@@ -23,6 +23,8 @@
 
 .code {
     background-color: #f5f5f5;
-    word-break: break-word;
+    padding: 0 0.2941176471em;
     border-radius: 0.1rem;
+    font-family: "Roboto Mono", SFMono-Regular, Consolas, Menlo, monospace;
+    word-break: break-word;
 }

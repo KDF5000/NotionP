@@ -21,8 +21,8 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-        Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-family: Roboto, v-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     font-size: 125%;
     height: 100%;
