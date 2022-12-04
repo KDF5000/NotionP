@@ -1,23 +1,7 @@
-.pageHeader,
-.postHeader {
-    margin: 24px auto var(--content-gap) auto;
-}
-
-.postTitle {
-    margin-bottom: 2px;
-    font-size: 40px;
-}
-
-.postMeta {
-    color: var(--secondary);
-    font-size: 14px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.postMeta .i18nList li {
-    display: inline-flex;
-    list-style: none;
-    margin: auto 3px;
-    box-shadow: 0 1px 0 var(--secondary);
+.articleH2 {
+    font-size: 1.8em;
+    line-height: 1em;
+    margin: 0 0 0em;
+    font-weight: 500;
+    color: #707070;
 }

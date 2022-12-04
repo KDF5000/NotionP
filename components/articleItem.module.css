@@ -1,0 +1,28 @@
+.item {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: .8rem;
+    line-height: 1.6;
+
+}
+
+.item a {
+    color: #4051b5;
+    text-decoration: none;
+    margin-left: 1em;
+    word-break: break-word;
+
+}
+
+.item a:hover {
+    color: #0070f3;
+}
+
+.code {
+    background-color: #f5f5f5;
+    word-break: break-word;
+    border-radius: 0.1rem;
+}

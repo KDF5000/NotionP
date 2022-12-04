@@ -1,14 +1,13 @@
 import styles from './layout.module.css';
 import Head from 'next/head';
 import Header from './header';
-import Footer from './footer';
 
 const name = "KDF";
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
     return (
-        <div className="list">
+        <div>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
                 <meta charset="utf-8" />
@@ -31,8 +30,8 @@ export default function Layout({ children, home }) {
             </Head>
 
             <Header></Header>
-            <main className={styles.main}>{children}</main>
-            <Footer></Footer>
+            <main className={styles.container}>{children}</main>
+            {/* <Footer></Footer> */}
         </div >
 
     );
