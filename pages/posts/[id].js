@@ -54,6 +54,7 @@ export async function getStaticProps({ params }) {
             title,
             recordMap
         },
+        revalidate: 10,
     };
 }
 
