@@ -1,0 +1,54 @@
+.header {
+    box-shadow: 0 0 0.2rem #0000, 0 0.2rem 0.4rem #0000;
+    color: var(--md-primary-bg-color);
+    display: block;
+    left: 0;
+    /* position: -webkit-sticky; */
+    /* position: sticky; */
+    right: 0;
+    top: 0;
+    z-index: 4;
+}
+
+.headerTitle {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.headerTitle a {
+    color: #707070 !important;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    line-height: var(--header-height);
+}
+
+#menu {
+    display: flex;
+    margin: auto var(--gap);
+    list-style: none;
+    word-break: keep-all;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#menu li+li {
+    margin-inline-start: var(--gap);
+}
+
+#menu a {
+    display: block;
+    font-size: .85rem;
+    color: #707070;
+}
+
+#menu .active {
+    font-weight: 500;
+    border-bottom: 2px solid currentColor;
+}
