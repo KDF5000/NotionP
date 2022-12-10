@@ -17,7 +17,7 @@ export const siteConfig = {
         {
             title: 'About',
             // link: "",
-            pageId: 'f1199d37579b41cbabfc0b5174f4256a'
+            pageId: '1be9d9982f954978870eac75d5677382',
         },
         {
             title: 'Github',
