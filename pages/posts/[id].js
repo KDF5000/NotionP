@@ -1,4 +1,4 @@
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import { queryDatabase } from '../../lib/notion';
 import { NotionAPI } from 'notion-client';
 import { NotionRenderer } from 'react-notion-x';

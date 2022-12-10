@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import { queryDatabase } from '../lib/notion';
-import Index from '../components/Index';
+import PostIndex from '../components/PostIndex';
 import { siteConfig } from '../site.config';
 
 export async function getStaticProps() {
@@ -16,7 +16,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
-      <Index posts={allPostsData} />
+      <PostIndex posts={allPostsData} />
     </Layout >
   );
 }

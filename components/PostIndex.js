@@ -1,6 +1,6 @@
 import ArticleItem from './ArticleItem';
 
-export default function Index({ posts }) {
+export default function PostIndex({ posts }) {
     return (
         <article>
             {posts.map(({ id, title, created_time, abstract }) => (
