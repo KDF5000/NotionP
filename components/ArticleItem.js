@@ -4,8 +4,8 @@ import Date from './date';
 export default function ArticleItem({ id, createTime, title }) {
     return (
         <p className={styles.item}>
-            <code className={styles.code}><Date dateString={createTime}></Date></code>
-            <a href={"/posts/" + id}>{title}</a>
+            <span className={styles.date}><Date dateString={createTime}></Date></span>
+            <span><a href={"/posts/" + id}>{title}</a></span>
         </p >
     );
 }

@@ -28,6 +28,7 @@ body {
     font-size: 1.375rem;
     height: 100%;
     overflow-x: hidden;
+    padding: 0 0.5rem;
 }
 
 * {
