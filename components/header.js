@@ -1,18 +1,22 @@
-import styles from './header.module.css';
+import styles from './Header.module.css';
+import { siteConfig } from '../site.config';
 
 export default function Header({ children, home }) {
     return (
         <header className={styles.header}>
             <nav className={styles.nav}>
                 <div className={styles.headerTitle}>
-                    <a href="/" accesskey="h" title="PaperMod (Alt + H)">OpenHex's blog</a>
+                    <a href="/" accessKey="h" title={siteConfig.name + " (Alt + H)"}>{siteConfig.name}</a>
                 </div>
                 <ul id={styles.menu}>
-                    <li>
-                        <a href="http://openhex.cn/" title="Tags">
-                            <span>Github</span>
-                        </a>
-                    </li>
+                    {
+                        siteConfig.navigationLinks.map(({ title, link, pageId }) => (
+                            <li key={title}>
+                                {link && <a href={link} title={title}><span>{title}</span></a>}
+                                {pageId && <a href={"/posts/" + pageId} title={title}><span>{title}</span></a>}
+                            </li>
+                        ))
+                    }
                 </ul>
             </nav >
         </header >

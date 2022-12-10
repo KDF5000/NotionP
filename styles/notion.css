@@ -4,6 +4,49 @@
     line-height: 1.6 !important;
 }
 
-.notion-collection-page-properties {
+.notion-header {
     display: none !important;
 }
+
+.notion-page-icon-hero {
+    display: none !important;
+}
+
+.notion-page-no-cover,
+.notion-page {
+    padding-top: 0px !important;
+}
+
+.notion-page-cover-wrapper {
+    display: none;
+}
+
+/* remove padding in full page mode */
+.notion-full-width {
+    padding-left: 0;
+}
+
+.notion-title {
+    display: block;
+    text-align: center;
+}
+
+.notion-collection-page-properties .notion-collection-row-body {
+    display: none;
+}
+
+
+/* 
+// do not show properties 
+.notion-collection-page-properties {
+    display: none !important;
+} */
+
+/* .notion-collection-page-properties .notion-collection-column-title {
+    display: none;
+}
+
+.notion-collection-row-property .notion-property {
+    display: flex;
+    justify-content: center;
+} */

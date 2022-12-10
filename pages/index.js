@@ -1,9 +1,10 @@
-import Layout, { siteTitle } from '../components/layout';
+import Layout from '../components/Layout';
 import { queryDatabase } from '../lib/notion';
-import ArticleItem from '../components/articleItem.module';
+import Index from '../components/Index';
+import { siteConfig } from '../site.config';
 
 export async function getStaticProps() {
-  const allPostsData = await queryDatabase("f532a109abd34b259c6bd1334d277ec8");
+  const allPostsData = await queryDatabase(siteConfig.rootDatabaseId);
   return {
     props: {
       allPostsData,
@@ -15,11 +16,7 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
-      <article>
-        {allPostsData.map(({ id, title, created_time, abstract }) => (
-          <ArticleItem id={id} createTime={created_time} title={title}></ArticleItem>
-        ))}
-      </article>
+      <Index posts={allPostsData} />
     </Layout >
   );
 }

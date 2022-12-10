@@ -24,7 +24,8 @@ body {
     -webkit-font-smoothing: antialiased;
     font-family: Roboto, v-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    font-size: 125%;
+    /* 16px *1.375 = 22px*/
+    font-size: 1.375rem;
     height: 100%;
     overflow-x: hidden;
 }
@@ -35,8 +36,4 @@ body {
 
 a {
     text-decoration: none;
-}
-
-h2 {
-    font-size: 1.1rem;
 }
