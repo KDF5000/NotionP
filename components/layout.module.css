@@ -3,4 +3,5 @@
     margin-right: auto;
     /*46 * 22px = 1012px*/
     max-width: 46rem;
+    height: 100%;
 }
