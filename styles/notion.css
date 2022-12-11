@@ -12,6 +12,10 @@
     display: none !important;
 }
 
+.notion-page-icon {
+    display: none;
+}
+
 .notion-page-no-cover,
 .notion-page {
     padding-top: 0px !important;
@@ -35,6 +39,10 @@
     display: none;
 }
 
+/* --- collection --- */
+.notion-collection-header {
+    display: none;
+}
 
 /* 
 // do not show properties 
