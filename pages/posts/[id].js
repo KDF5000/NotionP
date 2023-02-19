@@ -1,11 +1,12 @@
 import Layout from '../../components/Layout';
 import { queryDatabase } from '../../lib/notion';
 import { NotionAPI } from 'notion-client';
-import { NotionRenderer } from 'react-notion-x';
+import { NotionRenderer, defaultMapImageUrl } from 'react-notion-x';
 import { getPageTitle } from 'notion-utils';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { siteConfig } from '../../site.config';
+import {mapImageUrl} from '../../lib/map-image-url';
 
 export async function getStaticPaths() {
     const metas = await queryDatabase(siteConfig.rootDatabaseId);
@@ -31,7 +32,7 @@ export async function getStaticProps({ params }) {
             title,
             recordMap
         },
-        revalidate: 1,
+        revalidate: 10,
     };
 }
 
@@ -76,6 +77,7 @@ const Code = dynamic(() =>
         return m.Code
     })
 )
+
 const Collection = dynamic(() =>
     import('react-notion-x/build/third-party/collection').then(
         (m) => m.Collection
@@ -104,14 +106,16 @@ export default function Post({ recordMap }) {
                 recordMap={recordMap}
                 fullPage={true}
                 darkMode={false}
+                mapImageUrl={mapImageUrl}
                 components={{
                     nextImage: Image,
                     Code,
                     Collection,
                     Equation,
                     Modal,
-                    Pdf,
-                }} />
+                    Pdf
+                  }}
+                />
         </Layout >
     );
 }
