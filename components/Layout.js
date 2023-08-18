@@ -21,6 +21,7 @@ export default function Layout({ children, home }) {
                         siteConfig.name,
                     )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
                 />
+                <script async src="https://umami.pcursor.run/script.js" data-website-id="aab0d374-3cc2-4ef3-8c6c-91f67226cfa2"></script>
             </Head>
 
             <Header></Header>
