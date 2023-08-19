@@ -1,6 +1,8 @@
 .container {
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 34px;
+    margin-top: 100px;
     /*46 * 22px = 1012px*/
     max-width: 46rem;
     height: 100%;

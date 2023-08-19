@@ -6,8 +6,8 @@ export const siteConfig = {
     notionSecretKey: 'secret_Jbt9BN8bFQ1UvYFtvoUFtkCZBsEdR9XBG45UI6kYmI6',
 
     // basic site info (required)
-    name: 'OpenHex`s blog',
-    domain: 'openhex.cn',
+    name: 'PCursor',
+    domain: 'pcursor.run',
     author: 'DF.K',
 
     // open graph metadata (optional)

@@ -1,10 +1,17 @@
 .header {
-    box-shadow: 0 0 0.2rem #0000, 0 0.2rem 0.4rem #0000;
+    position: fixed;
+    /* box-shadow: 0 0 0.2rem #0000, 0 0.2rem 0.4rem #0000; */
     display: block;
     left: 0;
     right: 0;
     top: 0;
-    z-index: 4;
+    white-space: nowrap;
+    z-index: 20;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid transparent;
+    border-bottom-color: #e2e2e3;
+    background-color: #ffffff
 }
 
 .nav {
@@ -27,14 +34,12 @@
     color: #707070 !important;
 }
 
-
 #menu {
     display: flex;
     margin: auto 0;
     list-style: none;
     word-break: keep-all;
     overflow-x: auto;
-    white-space: nowrap;
 }
 
 #menu li+li {

@@ -9,6 +9,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin: 16px 0;
 }
 
 .date {
@@ -16,6 +17,7 @@
     padding: 0 0.2941176471em;
     border-radius: 0.1rem;
     font-family: "Roboto Mono", SFMono-Regular, Consolas, Menlo, monospace;
+    font-size: 0.7rem;
 }
 
 .item a {
@@ -25,5 +27,5 @@
 }
 
 .item a:hover {
-    color: #0070f3;
+    color: #00109b;
 }

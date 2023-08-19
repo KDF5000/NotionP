@@ -1,0 +1,25 @@
+.footer {
+    width: 100%;
+    border-top: 1px solid #e2e2e3;
+    padding: 32px 24px;
+    background-color: #ffffff;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: var(--vp-layout-max-width);
+    text-align: center;
+    position: relative;
+}
+
+.container a {
+    color: rgba(60, 60, 67, .75);
+}
+
+.message,.copyright {
+    margin: 0;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(60, 60, 67, .75);
+}

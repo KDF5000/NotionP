@@ -6,6 +6,6 @@ export default function ArticleItem({ id, createTime, title }) {
         <p className={styles.item}>
             <span className={styles.date}><Date dateString={createTime}></Date></span>
             <span><a href={"/posts/" + id}>{title}</a></span>
-        </p >
+        </p>
     );
 }

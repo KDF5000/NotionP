@@ -1,6 +1,7 @@
 import styles from './Layout.module.css';
 import Head from 'next/head';
 import Header from './Header';
+import Footer from './Footer';
 import { siteConfig } from '../site.config';
 
 export default function Layout({ children, home }) {
@@ -26,7 +27,7 @@ export default function Layout({ children, home }) {
 
             <Header></Header>
             <main className={styles.container}>{children}</main>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div >
 
     );
