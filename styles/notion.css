@@ -44,6 +44,9 @@
     display: none;
 }
 
+.notion-quote {
+    font-size: 1em !important;
+}
 /* 
 // do not show properties 
 .notion-collection-page-properties {
