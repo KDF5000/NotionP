@@ -15,7 +15,11 @@ export const siteConfig = {
 
     navigationLinks: [
         {
-            title: 'About',
+            title: "文章列表",
+            link: "/"
+        },
+        {
+            title: '关于',
             // link: "",
             pageId: '1be9d9982f954978870eac75d5677382',
         },

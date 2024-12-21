@@ -8,7 +8,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 import 'katex/dist/katex.min.css'
 
 // style overiders for notion
-import '../styles/global.css';
+import '../styles/globals.css';
 import '../styles/notion.css';
 
 export default function App({ Component, pageProps }) {

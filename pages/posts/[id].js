@@ -1,12 +1,12 @@
-import Layout from '../../components/Layout';
+import Layout from '../../components/layout';
 import { queryDatabase } from '../../lib/notion';
 import { NotionAPI } from 'notion-client';
-import { NotionRenderer, defaultMapImageUrl } from 'react-notion-x';
+import { NotionRenderer } from 'react-notion-x';
 import { getPageTitle } from 'notion-utils';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { siteConfig } from '../../site.config';
-import {mapImageUrl} from '../../lib/map-image-url';
+import { mapImageUrl } from '../../lib/map-image-url';
 
 export async function getStaticPaths() {
     const metas = await queryDatabase(siteConfig.rootDatabaseId);
@@ -114,8 +114,8 @@ export default function Post({ recordMap }) {
                     Equation,
                     Modal,
                     Pdf
-                  }}
-                />
+                }}
+            />
         </Layout >
     );
 }
