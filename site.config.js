@@ -1,8 +1,9 @@
 export const siteConfig = {
     // the site's root Database id (required)
-    rootDatabaseId: 'xxx',
+    rootDatabaseId: 'f532a109abd34b259c6bd1334d277ec8',
     // notion integration secret key. 
-    notionSecretKey: 'xxx',
+    // TODO: remove it
+    notionSecretKey: 'secret_Jbt9BN8bFQ1UvYFtvoUFtkCZBsEdR9XBG45UI6kYmI6',
 
     // basic site info (required)
     name: 'PCursor',
