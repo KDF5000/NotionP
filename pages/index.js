@@ -17,7 +17,7 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    <Layout>
+    <Layout title={siteConfig.name}>
       <header className="mb-16 text-center">
         <h1 className="mb-2 text-3xl font-bold">分布式存储思考</h1>
         <p className="text-muted-foreground">

@@ -99,9 +99,9 @@ const Modal = dynamic(
     }
 )
 
-export default function Post({ recordMap }) {
+export default function Post({ title, recordMap }) {
     return (
-        <Layout>
+        <Layout title={title}>
             <NotionRenderer
                 recordMap={recordMap}
                 fullPage={true}

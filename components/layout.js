@@ -3,9 +3,9 @@ import { Navigation } from './navigation';
 import { Footer } from './footer';
 import { siteConfig } from '../site.config';
 
-export default function Layout({ children }) {
+export default function Layout({ children, title }) {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white" class="heti" >
             <div className="mx-auto max-w-[80ch] px-4">
                 <Head>
                     <link rel="icon" href="/favicon.ico" />
@@ -15,7 +15,7 @@ export default function Layout({ children }) {
                     <meta name="robots" content="index, follow" />
                     <meta name="description" content={siteConfig.description} />
                     <meta name="author" content={siteConfig.author} />
-                    <meta name="og:title" content={siteConfig.name} />
+                    <meta name="og:title" content={title} />
                     <meta
                         property="og:image"
                         content={`https://og-image.vercel.app/${encodeURI(
