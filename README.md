@@ -24,8 +24,12 @@ NotionP 是一个使用 Notion Database 作为 CMS 的博客模板，支持：
 
 ## 项目截图
 
-![首页](./docs/screenshots/home.png)
-![文章详情](./docs/screenshots/post.png)
+<table>
+  <tr>
+    <td align="center"><img src="./docs/screenshots/home.png" alt="首页" width="480" /></td>
+    <td align="center"><img src="./docs/screenshots/post.png" alt="文章详情" width="480" /></td>
+  </tr>
+</table>
 
 ## 技术栈
 
