@@ -14,6 +14,7 @@ import '../styles/heti.min.css';
 import 'nprogress/nprogress.css';
 
 import type { AppProps } from 'next/app'
+import { useEffect } from 'react'
 import { ThemeProvider } from 'next-themes'
 import NProgress from 'nprogress';
 import Router from 'next/router';
@@ -25,6 +26,10 @@ Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
 export default function App({ Component, pageProps }: AppProps) {
+    useEffect(() => {
+        return;
+    }, []);
+
     return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <Component {...pageProps} />

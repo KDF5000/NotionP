@@ -121,6 +121,11 @@ export default function Post({ title, recordMap }: Props) {
     return (
         <Layout title={title}>
             <article className="heti">
+                <header className="mb-10 text-center">
+                    <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        {title}
+                    </h1>
+                </header>
                 <NotionRenderer
                     recordMap={recordMap}
                     fullPage={true}

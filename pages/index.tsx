@@ -12,9 +12,14 @@ type Props = {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const allPostsData = await queryDatabase(siteConfig.rootDatabaseId);
+  const sortedPosts = [...allPostsData].sort((a, b) => {
+    const timeA = a?.created_time ? new Date(a.created_time).getTime() : 0;
+    const timeB = b?.created_time ? new Date(b.created_time).getTime() : 0;
+    return timeB - timeA;
+  });
   return {
     props: {
-      allPostsData,
+      allPostsData: sortedPosts,
     },
     revalidate: 10, // In seconds
   };
