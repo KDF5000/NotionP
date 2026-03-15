@@ -34,6 +34,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const notion = new NotionAPI();
     const id = params?.id as string;
     const recordMap = await notion.getPage(id);
+    Object.entries(recordMap.block || {}).forEach(([blockId, block]) => {
+        const value: any = (block as any)?.value;
+        if (value && !value.id) {
+            value.id = blockId;
+        }
+    });
     const title = getPageTitle(recordMap);
     return {
         props: {
