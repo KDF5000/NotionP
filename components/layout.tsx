@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { Navigation } from './navigation';
 import { Footer } from './footer';
+import ScrollToTop from './scroll-to-top';
 import { siteConfig } from '../site.config';
 import { ReactNode } from 'react';
 
@@ -12,7 +13,7 @@ type Props = {
 
 export default function Layout({ children, title }: Props) {
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div className="min-h-screen bg-white dark:bg-gray-900">
             <div className="mx-auto max-w-[80ch] px-4 w-full">
                 <Head>
                     <link rel="icon" href="/favicon.ico" />
@@ -47,6 +48,7 @@ export default function Layout({ children, title }: Props) {
                 </main>
                 <hr className="border-gray-200 dark:border-gray-700" />
                 <Footer></Footer>
+                <ScrollToTop />
             </div >
         </div>
     )

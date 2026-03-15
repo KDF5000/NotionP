@@ -74,6 +74,20 @@
 
 .notion-quote {
     font-size: 1em !important;
+    padding: 0.5em 0.8em !important;
+    border-left-width: 3px !important;
+    background: var(--bg-color-1);
+    border-radius: 4px;
+}
+
+.heti blockquote {
+    margin-inline-start: 0 !important;
+    margin-block: 0.6em !important;
+}
+
+.notion-quote > div {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 /* do not show properties  */
@@ -88,8 +102,8 @@
 }
 
 .notion-list li {
-    padding: 2px 0 !important;
-    line-height: 1.6 !important;
+    padding: 1px 0 !important;
+    line-height: 1.75 !important;
 }
 
 /* Fix link color in dark mode */
@@ -100,6 +114,56 @@
 
 .dark-mode .notion-a:hover {
     text-decoration-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Fix TOC hover jump */
+.notion-table-of-contents-item {
+    line-height: 1.7 !important;
+    font-size: 0.95rem;
+}
+
+.notion-aside-table-of-contents .notion-table-of-contents-item,
+.notion-table-of-contents-item {
+    display: flex;
+    align-items: center;
+    line-height: 1.7 !important;
+    min-height: 1.9em;
+    padding: 4px 8px !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid transparent;
+    box-sizing: border-box;
+    letter-spacing: 0.2px;
+}
+
+.notion-table-of-contents-item > a,
+.notion-table-of-contents-item > span {
+    display: block;
+    line-height: 1.7 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+}
+
+.notion-table-of-contents-item > a:hover {
+    text-decoration: none !important;
+    border-bottom-color: currentColor;
+}
+
+.notion-table-of-contents-item:hover {
+    border-bottom-color: var(--fg-color-1);
+    background: transparent !important;
+}
+
+.notion-table-of-contents-item-body {
+    border-bottom: 1px solid transparent !important;
+}
+
+.notion-table-of-contents-item-indent-level-1 {
+    font-size: 0.88rem;
+}
+
+.notion-table-of-contents-item-indent-level-2 {
+    font-size: 0.82rem;
 }
 
 /* .notion-collection-page-properties .notion-collection-column-title {

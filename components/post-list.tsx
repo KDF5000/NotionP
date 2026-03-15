@@ -1,5 +1,6 @@
 import Date from './date';
 import { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type Post = {
     id: string;
@@ -79,26 +80,42 @@ export function PostList({ posts }: Props) {
       <section>
         {/* <h2 className="mb-8 text-2xl font-bold text-center">2024</h2> */}
         <ul className="space-y-4">
-          {filteredPosts.length > 0 ? (
-            filteredPosts.map(({ id, title, created_time }) => (
-              <li key={id} className="group flex items-center justify-between">
-                <a
-                  href={"/posts/" + id}
-                  className="truncate text-lg hover:bg-gray-900 hover:text-white text-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white transition-colors rounded px-2 -mx-2"
+          <AnimatePresence initial={false} mode="popLayout">
+            {filteredPosts.length > 0 ? (
+              filteredPosts.map(({ id, title, created_time }) => (
+                <motion.li 
+                  key={id} 
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.2 }}
+                  className="group flex items-center justify-between"
                 >
-                  {title}
-                </a>
-                <span className="flex-grow mx-4 h-px bg-gray-800 min-w-4 dark:bg-gray-600 transition-colors" />
-                <span className="flex-shrink-0 text-right text-sm text-gray-800 dark:text-gray-400 transition-colors">
-                  <Date dateString={created_time}></Date>
-                </span>
-              </li>
-            ))
-          ) : (
-            <li className="text-center text-gray-500 dark:text-gray-400 py-8">
-              没有找到相关文章
-            </li>
-          )}
+                  <a
+                    href={"/posts/" + id}
+                    className="truncate text-lg hover:bg-gray-900 hover:text-white text-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-white transition-colors rounded px-2 -mx-2"
+                  >
+                    {title}
+                  </a>
+                  <span className="flex-grow mx-4 h-px bg-gray-800 min-w-4 dark:bg-gray-600 transition-colors" />
+                  <span className="flex-shrink-0 text-right text-sm text-gray-800 dark:text-gray-400 transition-colors">
+                    <Date dateString={created_time}></Date>
+                  </span>
+                </motion.li>
+              ))
+            ) : (
+              <motion.li 
+                key="empty"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="text-center text-gray-500 dark:text-gray-400 py-8"
+              >
+                没有找到相关文章
+              </motion.li>
+            )}
+          </AnimatePresence>
         </ul>
       </section>
     </div>

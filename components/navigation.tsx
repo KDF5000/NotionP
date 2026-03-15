@@ -12,16 +12,16 @@ export function Navigation() {
   }, []);
 
   return (
-    <nav className="py-6 flex items-center justify-between">
-      <ul className="flex justify-center space-x-8 text-sm list-none mx-auto">
+    <nav className="h-16 flex items-center justify-between">
+      <ul className="flex justify-center space-x-8 text-sm list-none mx-auto items-center h-full">
         {
           siteConfig.navigationLinks.map(({ title, link, pageId }) => (
-            <li key={title}>
-              {link && <Link href={link} className="text-muted-foreground hover:text-foreground dark:text-gray-300 dark:hover:text-white transition-colors">
+            <li key={title} className="h-full flex items-center">
+              {link && <Link href={link} className="h-full flex items-center leading-none no-underline hover:no-underline text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200 ease-in-out">
                 {title}
               </Link>}
 
-              {pageId && <Link href={"/posts/" + pageId} className="text-muted-foreground hover:text-foreground dark:text-gray-300 dark:hover:text-white transition-colors">
+              {pageId && <Link href={"/posts/" + pageId} className="h-full flex items-center leading-none no-underline hover:no-underline text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200 ease-in-out">
                 {title}
               </Link>}
             </li>
