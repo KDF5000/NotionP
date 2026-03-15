@@ -1,12 +1,19 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import { Navigation } from './navigation';
 import { Footer } from './footer';
 import { siteConfig } from '../site.config';
+import { ReactNode } from 'react';
 
-export default function Layout({ children, title }) {
+type Props = {
+    children: ReactNode;
+    title?: string;
+}
+
+export default function Layout({ children, title }: Props) {
     return (
-        <div className="min-h-screen bg-white" class="heti" >
-            <div className="mx-auto max-w-[80ch] px-4">
+        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+            <div className="mx-auto max-w-[80ch] px-4 w-full">
                 <Head>
                     <link rel="icon" href="/favicon.ico" />
                     <meta charSet="utf-8" />
@@ -18,19 +25,27 @@ export default function Layout({ children, title }) {
                     <meta name="og:title" content={title} />
                     <meta
                         property="og:image"
-                        content={`https://og-image.vercel.app/${encodeURI(
+                        content={title ? `/api/og?title=${encodeURIComponent(title)}` : `https://og-image.vercel.app/${encodeURI(
                             siteConfig.name,
                         )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
                     />
-                    <script async src="https://umami.pcursor.run/script.js" data-website-id="aab0d374-3cc2-4ef3-8c6c-91f67226cfa2"></script>
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5055656294056033" crossorigin="anonymous"></script>
                 </Head>
+                <Script 
+                    src="https://umami.pcursor.run/script.js" 
+                    strategy="afterInteractive" 
+                    data-website-id="aab0d374-3cc2-4ef3-8c6c-91f67226cfa2" 
+                />
+                <Script 
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5055656294056033" 
+                    crossOrigin="anonymous" 
+                    strategy="afterInteractive"
+                />
                 <Navigation />
-                <hr className="border-gray-200" />
+                <hr className="border-gray-200 dark:border-gray-700" />
                 <main className="py-12">
                     {children}
                 </main>
-                <hr className="border-gray-200" />
+                <hr className="border-gray-200 dark:border-gray-700" />
                 <Footer></Footer>
             </div >
         </div>

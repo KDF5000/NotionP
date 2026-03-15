@@ -1,4 +1,27 @@
 
+/* Fix dark mode background consistency */
+.dark-mode {
+    --bg-color: transparent !important;
+    --bg-color-0: transparent !important;
+    --bg-color-1: transparent !important;
+    --bg-color-2: transparent !important;
+}
+
+.dark-mode .notion-page,
+.dark-mode .notion-frame,
+.dark-mode .notion-scroller,
+.dark-mode .notion {
+    background-color: transparent !important;
+}
+
+.dark-mode .notion-body {
+    background: transparent !important;
+}
+
+.dark-mode .notion {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
 .notion-page {
     width: 100% !important;
     font-size: 1rem !important;
@@ -56,6 +79,27 @@
 /* do not show properties  */
 .notion-collection-page-properties {
     display: none !important;
+}
+
+/* Fix list spacing */
+.notion-list {
+    margin-block-start: 0.5em !important;
+    margin-block-end: 0.5em !important;
+}
+
+.notion-list li {
+    padding: 2px 0 !important;
+    line-height: 1.6 !important;
+}
+
+/* Fix link color in dark mode */
+.dark-mode .notion-a {
+    color: inherit !important;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .notion-a:hover {
+    text-decoration-color: rgba(255, 255, 255, 0.8);
 }
 
 /* .notion-collection-page-properties .notion-collection-column-title {

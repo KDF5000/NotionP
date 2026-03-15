@@ -7,10 +7,12 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { siteConfig } from '../../site.config';
 import { mapImageUrl } from '../../lib/map-image-url';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { ExtendedRecordMap } from 'notion-types';
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
     const metas = await queryDatabase(siteConfig.rootDatabaseId);
-    const paths = metas.map((meta) => {
+    const paths = metas.map((meta: any) => {
         return {
             params: {
                 id: meta.id,
@@ -23,9 +25,15 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params }) {
-    const notionx = new NotionAPI();
-    const recordMap = await notionx.getPage(params.id);
+type Props = {
+    title: string;
+    recordMap: ExtendedRecordMap;
+}
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+    const notion = new NotionAPI();
+    const id = params?.id as string;
+    const recordMap = await notion.getPage(id);
     const title = getPageTitle(recordMap);
     return {
         props: {
@@ -99,23 +107,35 @@ const Modal = dynamic(
     }
 )
 
-export default function Post({ title, recordMap }) {
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+
+export default function Post({ title, recordMap }: Props) {
+    const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
         <Layout title={title}>
-            <NotionRenderer
-                recordMap={recordMap}
-                fullPage={true}
-                darkMode={false}
-                mapImageUrl={mapImageUrl}
-                components={{
-                    nextImage: Image,
-                    Code,
-                    Collection,
-                    Equation,
-                    Modal,
-                    Pdf
-                }}
-            />
+            <article className="heti">
+                <NotionRenderer
+                    recordMap={recordMap}
+                    fullPage={true}
+                    darkMode={mounted && theme === 'dark'}
+                    mapImageUrl={mapImageUrl}
+                    components={{
+                        nextImage: Image,
+                        Code,
+                        Collection,
+                        Equation,
+                        Modal,
+                        Pdf
+                    }}
+                />
+            </article>
         </Layout >
     );
 }
