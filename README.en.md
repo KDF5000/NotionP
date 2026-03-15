@@ -26,8 +26,12 @@ NotionP is a blog template using a Notion Database as the CMS. It includes:
 
 <table>
   <tr>
-    <td align="center"><img src="./docs/screenshots/home.png" alt="Home" width="480" /></td>
-    <td align="center"><img src="./docs/screenshots/post.png" alt="Post Detail" width="480" /></td>
+    <td align="center" valign="top" width="50%">
+      <a href="./docs/screenshots/home.png"><img src="./docs/screenshots/home.png" alt="Home" width="100%" /></a>
+    </td>
+    <td align="center" valign="top" width="50%">
+      <a href="./docs/screenshots/post.png"><img src="./docs/screenshots/post.png" alt="Post Detail" width="100%" /></a>
+    </td>
   </tr>
 </table>
 
