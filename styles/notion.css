@@ -56,6 +56,15 @@
     padding-left: 0;
 }
 
+.notion-page-content-inner {
+    width: 100%;
+    align-items: stretch;
+}
+
+.notion-page-content-inner > * {
+    max-width: 100%;
+}
+
 .notion-title {
     display: none !important;
 }
