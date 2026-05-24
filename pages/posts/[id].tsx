@@ -1,6 +1,6 @@
 import Layout from '../../components/layout';
 import { queryDatabase } from '../../lib/notion';
-import { NotionAPI } from 'notion-client';
+import { getPageRecordMap } from '../../lib/notion-page';
 import { NotionRenderer } from 'react-notion-x';
 import { getPageTitle } from 'notion-utils';
 import dynamic from 'next/dynamic';
@@ -31,9 +31,14 @@ type Props = {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-    const notion = new NotionAPI();
     const id = params?.id as string;
-    const recordMap = await notion.getPage(id);
+    let recordMap: ExtendedRecordMap;
+    try {
+        recordMap = await getPageRecordMap(id);
+    } catch (error) {
+        console.error(`Failed to fetch Notion page ${id}:`, error);
+        return { notFound: true };
+    }
     Object.entries(recordMap.block || {}).forEach(([blockId, block]) => {
         const value: any = (block as any)?.value;
         if (value && !value.id) {
